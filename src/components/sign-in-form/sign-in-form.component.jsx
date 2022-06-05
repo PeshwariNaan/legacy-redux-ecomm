@@ -30,7 +30,7 @@ const SignInForm = () => {
 
     try {
       dispatch(emailSignInStart(email, password));
-      console.log('handle submit fired')
+      
       resetFormFields();
     } catch (error) {
       console.log('user sign in failed', error);
