@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,9 +17,10 @@ const CartDropdown = () => {
   const  cartItems  = useSelector(selectCartItems);
   const navigate = useNavigate();
 
-  const goToCheckoutHandler = () => {
+  const goToCheckoutHandler = useCallback(() => {
     navigate('/checkout');
-  };
+  }, []);  // We know that navigate will never change but we will still get a warning if we don't include it in the dependency array.
+  // But this means that we anticipate the value of navigate to change which is misleading. So go with the flow on this one.
 
   return (
     <CartDropdownContainer>
