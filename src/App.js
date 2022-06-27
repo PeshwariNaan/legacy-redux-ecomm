@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
+import { GlobalStyles } from "./global.styles";
+
 import { Routes, Route } from "react-router-dom";
 import Home from "./routes/home/home.component";
 import Navigation from "./routes/navigation/navigation.component";
@@ -11,6 +13,7 @@ import { checkUserSession } from "./store/user/user.action";
 
 const App = () => {
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(checkUserSession())
   }, [dispatch]);
